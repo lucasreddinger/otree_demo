@@ -1,0 +1,29 @@
+{{ block title }}
+    Intro
+{{ endblock }}
+{{ block content }}
+
+    <p>
+        This app demonstrates how to have a waiting page that just waits for certain people to arrive before proceeding.
+        You can make it any subset of participants: for example, just the participants you marked as being online currently,
+        or just those who gave a specific answer to a question.
+    </p>
+
+    <p>
+        In this demo, the players were randomly selected as: {{ session.wait_for_ids }}.
+    </p>
+
+    <p>
+        You are player {{ player.id_in_subsession }}, so you
+        {{ if player.selected_for_waitpage }}
+            must wait on
+        {{ else}}
+            can skip
+        {{ endif }}
+        the following wait page.
+    </p>
+
+    <p>Click next.</p>
+    {{ next_button }}
+
+{{ endblock }}

@@ -1,0 +1,29 @@
+{{ block content }}
+
+<p>Please split your 100 points between A, B, and C.</p>
+
+{{ formfields }}
+<p>
+    <b>Total: <span id="total"></span></b>
+</p>
+
+<script>
+    let inputlist = document.getElementsByTagName('input');
+    let totalDisplay = document.getElementById('total');
+
+
+    function updateSum() {
+        let total = 0;
+        for (let input of inputlist) {
+            total += parseInt(input.value || 0);
+        }
+        totalDisplay.innerText = total;
+    }
+
+    for (let input of inputlist) {
+        input.oninput = updateSum;
+    }
+</script>
+{{ next_button }}
+
+{{ endblock }}

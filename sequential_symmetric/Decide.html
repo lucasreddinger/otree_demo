@@ -1,0 +1,13 @@
+{{ block content }}
+    <ul>
+        <li>This is a sequential game with {{ C.PLAYERS_PER_GROUP }} players.</li>
+        <li>You are player {{ player.id_in_group }}.</li>
+        <li>Each player will see the previous player's choices</li>
+    </ul>
+
+    {{ include_sibling 'table.html' }}
+
+    {{ formfields }}
+    {{ next_button }}
+
+{{ endblock }}

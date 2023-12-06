@@ -1,0 +1,14 @@
+{{ if players }}
+<table class="table" style="width: auto">
+    <tr>
+        <th>Player</th>
+        <th>Guess</th>
+    </tr>
+    {{ for p in players }}
+    <tr>
+        <td>Player {{ p.id_in_group }}</td>
+        <td>{{ p.decision }}</td>
+    </tr>
+    {{ endfor }}
+</table>
+{{ endif }}

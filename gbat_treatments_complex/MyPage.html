@@ -1,0 +1,17 @@
+{{ block title }}
+    Round {{ subsession.round_number }}
+{{ endblock }}
+{{ block content }}
+
+    <p>
+        Your group is assigned to the
+        {{ if participant.time_pressure }}
+            "time-pressure"
+        {{ else }}
+            "non-time-pressure"
+        {{ endif }}
+        treatment.
+    </p>
+
+    {{ next_button }}
+{{ endblock }}

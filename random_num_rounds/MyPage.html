@@ -1,0 +1,12 @@
+{{ block title }}
+    Round {{ subsession.round_number }}
+{{ endblock }}
+{{ block content }}
+
+    <p>
+        This player will continue for {{ participant.num_rounds }} rounds.
+    </p>
+
+    {{ next_button }}
+
+{{ endblock }}

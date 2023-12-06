@@ -1,0 +1,32 @@
+{{ block content }}
+
+<p>
+    This is a volunteer dilemma with {{ C.PLAYERS_PER_GROUP }} players per group.
+    If someone in the group volunteers,
+    each player will get a reward of {{ C.REWARD }}.
+    But the volunteer will pay a penalty of {{ C.VOLUNTEER_COST }}.
+</p>
+
+<button type="button" class="btn btn-primary" onclick="sendVolunteer()">I volunteer</button>
+<br><br>
+
+<p>Here you can chat with your group.</p>
+{{ chat }}
+
+<script>
+    function sendVolunteer() {
+        liveSend({'volunteer': true});
+    }
+
+    function liveRecv(data) {
+        if (data.finished) {
+            document.getElementById('form').submit();
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        liveSend({});
+    });
+</script>
+
+{{ endblock }}

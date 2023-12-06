@@ -1,0 +1,16 @@
+{{ block title }}
+    {{ if subsession.is_practice_round }}
+        Practice round {{ subsession.round_number }} of {{ C.NUM_PRACTICE_ROUNDS }}
+    {{ else }}
+        Round {{ subsession.real_round_number }} of {{ C.NUM_REAL_ROUNDS }}
+    {{ endif}}
+{{ endblock }}
+{{ block content }}
+
+    <p>Math question: what is {{ player.round_number }} squared?</p>
+
+    {{ formfields }}
+
+    {{ next_button }}
+
+{{ endblock }}

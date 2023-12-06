@@ -1,0 +1,11 @@
+{{ block title }}
+    Results
+{{ endblock }}
+
+{{ block content }}
+    <p>Here are the results. (You are player {{ player.id_in_group }}.)</p>
+
+    {{ include_sibling 'table.html' }}
+{{ endblock }}
+
+

@@ -1,0 +1,30 @@
+{{ block content }}
+
+    <style>
+        .slider-graphic {
+            display: none;
+            width: 6em;
+        }
+    </style>
+
+
+    <p>Drag the slider to indicate how you feel right now.</p>
+    <input type="range" name="feeling" value="1" min="0" max="3" oninput="changeGraphic(this)">
+    {{ for img_path in img_paths }}
+        <img src="{{ static img_path }}" class="slider-graphic">
+    {{ endfor }}
+
+    <script>
+        let graphics = document.getElementsByClassName('slider-graphic');
+
+        function changeGraphic(input) {
+            for (let img of graphics) {
+                img.style.display = 'none';
+            }
+            graphics[parseInt(input.value)].style.display = 'block';
+        }
+    </script>
+
+    {{ next_button }}
+
+{{ endblock }}

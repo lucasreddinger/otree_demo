@@ -1,0 +1,48 @@
+{{ block content }}
+
+<p>
+    If you've used raw HTML widgets (slider/checkbox),
+    you may have noticed that they are wiped out on when the form is re-rendered
+    to show errors.
+    This page contains simple code to overcome that limitation.
+</p>
+
+<p>
+    To test, modify the form fields, then submit the page.
+    (The form will fail validation until you set the slider to the correct value.)
+</p>
+
+<label class="col-form-label">
+    Here is a slider:
+</label>
+
+<div style="display: flex">
+    0
+    &nbsp;
+    <input type="range" name="f_int" min="0" max="10" style="flex: 1" class="persist">
+    &nbsp;
+    10
+</div>
+{{ formfield_errors 'f_int' }}
+<br>
+
+<p>Here are some checkboxes:</p>
+<input type="checkbox" name="f_bool1" value="1" class="persist">
+<input type="checkbox" name="f_bool2" value="1" class="persist">
+<input type="checkbox" name="f_bool3" value="1" class="persist">
+<input type="checkbox" name="f_bool4" value="1" class="persist">
+<input type="checkbox" name="f_bool5" value="1" class="persist">
+
+<br><br>
+{{ next_button }}
+
+{#
+INSTRUCTIONS
+(1) make sure your _static/ folder contains persist-raw.js
+(2) copy the below 'script' tag into your template
+(2) add class="persist" to your raw HTML inputs
+#}
+
+<script src="{{ static 'persist-raw.js' }}"></script>
+
+{{ endblock }}

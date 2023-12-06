@@ -1,0 +1,45 @@
+{{ block title }}
+Round {{ subsession.round_number }}
+{{ endblock }}
+{{ block content }}
+
+<p><i>
+    This app shows how you can chain methods like <code>.in_all_rounds()</code>
+    with <code>group.get_players()</code>, <code>player.get_others_in_group()</code>,
+    etc, to get the history of other players in different ways.
+</i></p>
+
+<h3>My current partner's history</h3>
+<p>My current partner: player {{ partner.id_in_subsession }}</p>
+<table class="table">
+    <tr>
+        <th>Round</th>
+        <th>contribution</th>
+    </tr>
+    {{ for p in my_partner_previous }}
+    <tr>
+        <td>{{ p.round_number }}</td>
+        <td>{{ p.contribution }}</td>
+    </tr>
+    {{ endfor }}
+</table>
+
+<h3>History of my partners</h3>
+<table class="table">
+    <tr>
+        <th>Round</th>
+        <th>Player</th>
+        <th>contribution</th>
+    </tr>
+    {{ for p in my_previous_partners }}
+    <tr>
+        <td>{{ p.round_number }}</td>
+        <td>{{ p.id_in_subsession }}</td>
+        <td>{{ p.contribution }}</td>
+    </tr>
+    {{ endfor }}
+</table>
+
+{{ next_button }}
+
+{{ endblock }}

@@ -1,0 +1,23 @@
+{{ block title }}
+    Make a cocktail!
+{{ endblock }}
+{{ block content }}
+
+    <ul>
+        <li>This is a sequential game with {{ C.PLAYERS_PER_GROUP }} players.</li>
+        <li>You are player {{ player.id_in_group }}.</li>
+        <li>The objective is to make a cocktail with 3 ingredients. Each player chooses one ingredient.</li>
+    </ul>
+
+    {{ if player.id_in_group >= 2}}
+        <p>Player 1 chose {{ group.mixer }}.</p>
+    {{ endif }}
+
+    {{ if player.id_in_group >= 3}}
+        <p>Player 2 chose {{ group.liqueur }}.</p>
+    {{ endif }}
+
+    {{ formfields }}
+    {{ next_button }}
+
+{{ endblock }}

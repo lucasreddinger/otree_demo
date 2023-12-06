@@ -1,0 +1,32 @@
+{{ block title }}
+Rank your favorite drinks
+{{ endblock }}
+{{ block content }}
+
+
+<ul id="items" class="list-group list-group-numbered" style="cursor: move">
+    {{ for choice in C.CHOICES }}
+    <li data-id="{{ choice }}" class="list-group-item">{{ choice }}</li>
+    {{ endfor }}
+</ul>
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+<script>
+    let el = document.getElementById('items');
+    let sortable = Sortable.create(el, {
+        onChange: function (evt) {
+            forminputs.ranking.value = sortable.toArray().join(',');
+        }
+    });
+</script>
+
+<input type="hidden" name="ranking" id="ranking">
+
+{{ formfield_errors 'ranking' }}
+
+<p>
+    {{ next_button }}
+
+</p>
+
+{{ endblock }}

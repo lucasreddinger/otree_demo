@@ -1,0 +1,27 @@
+{{ extends 'otree/WaitPage.html' }}
+
+{{ block title }}
+Please wait
+{{ endblock }}
+{{ block content }}
+
+{{ if timeout_happened }}
+    <p>
+        No other players showed up in time.
+        Please submit this HIT with completion code <b>{{ player.completion_code }}</b>
+    </p>
+{{ else }}
+    <p>
+        If you are left waiting for longer than {{ C.TIMEOUT }} seconds,
+        the game will end.
+    </p>
+
+    <script>
+        setInterval(function () {
+            window.location.reload();
+        }, js_vars.timeout * 1000);
+
+    </script>
+{{ endif }}
+
+{{ endblock }}

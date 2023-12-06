@@ -1,0 +1,13 @@
+time_pressure,endowment,high_tax,color
+0,100,0,red
+0,200,0,blue
+0,300,0,yellow
+0,100,1,green
+0,200,1,red
+0,300,1,blue
+1,100,0,yellow
+1,200,0,green
+1,300,0,red
+1,100,1,blue
+1,200,1,green
+1,300,1,yellow

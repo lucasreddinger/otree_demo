@@ -1,0 +1,18 @@
+{{ block title }}
+    Results
+{{ endblock }}
+
+{{ block content }}
+
+    <p>The colors chosen in your group were:</p>
+
+    <ul>
+        {{ for p in group.get_players() }}
+            <li>{{ p.favorite_color }}</li>
+        {{ endfor }}
+    </ul>
+
+    {{ next_button }}
+{{ endblock }}
+
+

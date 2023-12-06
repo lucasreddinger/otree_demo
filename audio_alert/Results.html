@@ -1,0 +1,28 @@
+{{ block title }}
+Results
+{{ endblock }}
+{{ block content }}
+
+<script>
+  function sayReady() {
+    let msg = new SpeechSynthesisUtterance();
+    // or: de-DE, zh-CN, ja-JP, es-MX, etc.
+    msg.language = 'en-US';
+    // actually better to use js_vars than double-braces
+    msg.text = "Ready player {{ player.id_in_group }}";
+    window.speechSynthesis.speak(msg);
+  }
+
+  if (document.hidden) {
+    sayReady();
+  }
+</script>
+
+<p><i>
+  You should hear a voice saying the game is ready,
+  if the user is in another tab when this page loads.
+</i></p>
+
+{{ next_button }}
+
+{{ endblock }}

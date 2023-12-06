@@ -1,0 +1,56 @@
+{{ block title }}
+Random draw
+{{ endblock }}
+{{ block content }}
+
+<p>Please wait. The experimenter will draw a random number.</p>
+
+<details>
+    <summary>If you are the experimenter, click here.</summary>
+    <label class="col-form-label">
+        Number drawn
+        <input type="number" class="form-control" id="exp_input">
+    </label>
+    <br>
+    <label class="col-form-label">
+        Password
+        {# you can add type="password" for a proper password input #}
+        <input class="form-control" id="password">
+    </label>
+    <br>
+    <button type="button" onclick="sendData()">Submit</button>
+    <p>
+    <small>
+        Hint for demo purposes: password is "{{ C.PASSWORD }}".
+        You can get to this page by opening the participant's start URL.
+    </small>
+    </p>
+
+</details>
+
+<script>
+    let expInput = document.getElementById('exp_input');
+    let passwordInput = document.getElementById('password');
+
+    function sendData() {
+        liveSend({'exp_input': parseInt(expInput.value), password: passwordInput.value});
+    }
+
+    function liveRecv(data) {
+        if (data.finished) {
+            document.getElementById('form').submit();
+        }
+        if (data.error) {
+            alert(data.error);
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        // need this so that you proceed even if you arrive late or got disconnected
+        liveSend({});
+    });
+
+</script>
+
+
+{{ endblock }}

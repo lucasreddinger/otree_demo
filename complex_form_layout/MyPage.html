@@ -1,0 +1,22 @@
+{{ block title }}
+    Page title
+{{ endblock }}
+{{ block content }}
+
+    <p><i>fields are in 2 sections, and randomized within a section.</i></p>
+
+    <p>Please answer the following questions about topic A</p>
+
+    {{ for field in a_fields }}
+        {{ formfield field }}
+    {{ endfor }}
+
+    <p>Please answer the following questions about topic B</p>
+
+    {{ for field in b_fields }}
+        {{ formfield field }}
+    {{ endfor }}
+
+    {{ next_button }}
+
+{{ endblock }}

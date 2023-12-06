@@ -1,0 +1,24 @@
+{{ block title }}
+
+{{ endblock }}
+{{ block content }}
+
+<p>Move the slider to decide how much to give.</p>
+
+<input type="range" name="give" min="0" max="{{ C.ENDOWMENT }}" oninput="updateDescription(this)">
+<p id="description"></p>
+<!-- by leaving the description blank initially, we prompt the user to move the slider,
+reducing the anchoring/default effect. -->
+
+<script>
+    let description = document.getElementById('description');
+    function updateDescription(input) {
+        let give = parseInt(input.value);
+        let keep = js_vars.endowment - give;
+        description.innerText = `Give ${give} points and keep ${keep} for yourself.`
+    }
+</script>
+
+{{ next_button }}
+
+{{ endblock }}

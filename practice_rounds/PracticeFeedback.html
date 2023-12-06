@@ -1,0 +1,19 @@
+{{ block title }}
+    Practice feedback
+{{ endblock }}
+
+{{ block content }}
+
+    {{ if player.is_correct }}
+        <p>You got the practice question correct!</p>
+    {{ else }}
+        <p>You answered {{ player.response }} but the correct answer was {{ player.solution }}.</p>
+    {{ endif }}
+
+    <p>Once the real rounds start, you won't see this feedback page anymore.</p>
+
+    {{ next_button }}
+
+{{ endblock }}
+
+

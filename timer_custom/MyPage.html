@@ -1,0 +1,21 @@
+{{ block title }}
+    Custom timer element
+{{ endblock }}
+{{ block content }}
+
+    <p>You have <span id="time-left"></span> seconds left.</p>
+
+    {{ formfields }}
+    {{ next_button }}
+
+    <script>
+        let customTimerEle = document.getElementById('time-left');
+
+        document.addEventListener("DOMContentLoaded", function (event) {
+            $('.otree-timer__time-left').on('update.countdown', function (event) {
+                customTimerEle.innerText = event.offset.totalSeconds;
+            });
+        });
+
+    </script>
+{{ endblock }}

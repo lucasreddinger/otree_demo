@@ -1,0 +1,18 @@
+{{ block title }}
+    Click the button
+{{ endblock }}
+{{ block content }}
+
+    <p>
+        This app records to the database the number of times you click the button
+        or the link.
+    </p>
+
+    <p>
+        <button type="button" onclick="liveSend('clicked-button')">Click me</button>
+        <a href="https://wikipedia.org" onclick="liveSend('clicked-link')" target="_blank">Click me</a>
+    </p>
+
+    {{ next_button }}
+
+{{ endblock }}
